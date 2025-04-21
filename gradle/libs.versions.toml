@@ -10,6 +10,7 @@ maplibre-android-sdk = "11.8.5"
 maplibre-android-plugins = "3.0.2"
 maplibre-ios = "6.9.0"
 maplibre-js = "4.7.1"
+maplibreCompose ="0.6.0"
 spatialk = "0.3.0"
 webpack-html = "5.6.3"
 webpack-htmlInlineScript = "3.2.1"
@@ -44,6 +45,7 @@ ktor-serialization-kotlinxJson = { module = "io.ktor:ktor-serialization-kotlinx-
 maplibre-android = { module = "org.maplibre.gl:android-sdk", version.ref = "maplibre-android-sdk" }
 maplibre-android-scalebar = { module = "org.maplibre.gl:android-plugin-scalebar-v9", version.ref = "maplibre-android-plugins" }
 spatialk-geojson = { group = "io.github.dellisd.spatialk", name = "geojson", version.ref = "spatialk" }
+maplibre-compose = { module = "dev.sargunv.maplibre-compose:maplibre-compose", version.ref = "maplibreCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle-android" }
