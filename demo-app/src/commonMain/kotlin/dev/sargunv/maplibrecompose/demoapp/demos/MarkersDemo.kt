@@ -37,6 +37,13 @@ import dev.sargunv.maplibrecompose.expressions.dsl.span
 import io.github.dellisd.spatialk.geojson.Feature
 import io.github.dellisd.spatialk.geojson.Position
 import org.jetbrains.compose.resources.painterResource
+import androidx.compose.material3.TextButton
+import io.github.dellisd.spatialk.geojson.Point
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.RectangleShape
 
 private val CHICAGO = Position(latitude = 41.878, longitude = -87.626)
 
@@ -89,21 +96,34 @@ object MarkersDemo : Demo {
       }
 
       selectedFeature?.let { feature ->
-        AlertDialog(
-          onDismissRequest = { selectedFeature = null },
-          confirmButton = {},
-          title = { Text(feature.getStringProperty("STNNAME") ?: "") },
-          text = {
-            Column {
-              Text("Station Code: ${feature.getStringProperty("STNCODE") ?: ""}")
-              Text("Station Type: ${feature.getStringProperty("STNTYPE") ?: ""}")
-              Text("Address: ${feature.getStringProperty("ADDRESS1") ?: ""}")
-              Text("City: ${feature.getStringProperty("CITY") ?: ""}")
-              Text("State: ${feature.getStringProperty("STATE") ?: ""}")
-              Text("Zip: ${feature.getStringProperty("ZIP") ?: ""}")
-            }
-          },
-        )
+          AlertDialog(
+              onDismissRequest = { selectedFeature = null },
+              confirmButton = {
+                  TextButton(onClick = {
+                      // Add navigation logic here
+                    val point = feature.geometry as? Point
+                    val latitude = point?.coordinates?.latitude
+                    val longitude = point?.coordinates?.longitude
+                    if (latitude != null && longitude != null) {
+                      cameraState.position = CameraPosition(target = Position(latitude, longitude), zoom = 10.0)
+                      }
+                      selectedFeature = null
+                  }) {
+                      Text("Navigate To")
+                  }
+              },
+              title = { Text(feature.getStringProperty("STNNAME") ?: "") },
+              text = {
+                  Column {
+                      Text("Station Code: ${feature.getStringProperty("STNCODE") ?: ""}")
+                      Text("Station Type: ${feature.getStringProperty("STNTYPE") ?: ""}")
+                      Text("Address: ${feature.getStringProperty("ADDRESS1") ?: ""}")
+                      Text("City: ${feature.getStringProperty("CITY") ?: ""}")
+                      Text("State: ${feature.getStringProperty("STATE") ?: ""}")
+                      Text("Zip: ${feature.getStringProperty("ZIP") ?: ""}")
+                  }
+              },
+          )
       }
     }
   }

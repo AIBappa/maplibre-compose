@@ -6,15 +6,15 @@ kermit = "2.0.5"
 kotlinx-browser = "0.3"
 kotlinx-coroutines = "1.10.1"
 ktor = "3.1.2"
-maplibre-android-sdk = "11.8.5"
+maplibre-android-sdk = "11.8.6"
 maplibre-android-plugins = "3.0.2"
 maplibre-ios = "6.9.0"
 maplibre-js = "4.7.1"
+maplibreCompose ="0.6.0"
 spatialk = "0.3.0"
 webpack-html = "5.6.3"
 webpack-htmlInlineScript = "3.2.1"
 webview = "1.9.40"
-
 gradle-android = "8.7.3"
 gradle-compose = "1.7.3"
 gradle-dokka = "2.0.0"
@@ -23,8 +23,9 @@ gradle-kotlin = "2.1.20"
 gradle-mavenPublish = "0.30.0"
 gradle-mkdocs = "4.0.1"
 gradle-spotless = "7.0.2"
-
 tool-prettier = "3.4.2"
+ferrostar = "0.32.0"
+okhttp3 = "4.12.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
@@ -44,6 +45,11 @@ ktor-serialization-kotlinxJson = { module = "io.ktor:ktor-serialization-kotlinx-
 maplibre-android = { module = "org.maplibre.gl:android-sdk", version.ref = "maplibre-android-sdk" }
 maplibre-android-scalebar = { module = "org.maplibre.gl:android-plugin-scalebar-v9", version.ref = "maplibre-android-plugins" }
 spatialk-geojson = { group = "io.github.dellisd.spatialk", name = "geojson", version.ref = "spatialk" }
+maplibre-compose = { module = "dev.sargunv.maplibre-compose:maplibre-compose", version.ref = "maplibreCompose" }
+ferrostar-core = { group = "com.stadiamaps.ferrostar", name = "core", version.ref = "ferrostar" }
+ferrostar-maplibreui = { group = "com.stadiamaps.ferrostar", name = "maplibreui", version.ref = "ferrostar" }
+okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3" }
+okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp3" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle-android" }

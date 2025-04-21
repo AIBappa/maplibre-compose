@@ -30,8 +30,8 @@ android {
   packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
   buildTypes { getByName("release") { isMinifyEnabled = false } }
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
   }
 
   @Suppress("UnstableApiUsage") testOptions { animationsDisabled = true }
@@ -85,6 +85,11 @@ kotlin {
       implementation(libs.ktor.serialization.kotlinxJson)
       implementation(project(":lib:maplibre-compose"))
       implementation(project(":lib:maplibre-compose-material3"))
+      implementation(libs.maplibre.compose)
+      implementation(libs.ferrostar.core)
+      implementation(libs.ferrostar.maplibreui)
+      implementation(project.dependencies.platform(libs.okhttp.bom))
+      implementation(libs.okhttp3)
     }
 
     androidMain.dependencies {
