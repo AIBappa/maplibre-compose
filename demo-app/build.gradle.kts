@@ -86,16 +86,16 @@ kotlin {
       implementation(project(":lib:maplibre-compose"))
       implementation(project(":lib:maplibre-compose-material3"))
       implementation(libs.maplibre.compose)
-      implementation(libs.ferrostar.core)
-      implementation(libs.ferrostar.maplibreui)
-      implementation(project.dependencies.platform(libs.okhttp.bom))
-      implementation(libs.okhttp3)
     }
 
     androidMain.dependencies {
       implementation(libs.androidx.activity.compose)
       implementation(libs.kotlinx.coroutines.android)
       implementation(libs.ktor.client.okhttp)
+      implementation(libs.ferrostar.core)
+      implementation(libs.ferrostar.maplibreui)
+      implementation(project.dependencies.platform(libs.okhttp.bom))
+      implementation(libs.okhttp3)
     }
 
     iosMain.dependencies { implementation(libs.ktor.client.darwin) }
